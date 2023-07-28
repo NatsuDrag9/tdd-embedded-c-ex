@@ -10,7 +10,11 @@ Exercises:
 
 [ex-2 Led Driver](https://github.com/NatsuDrag9/tdd-embedded-c-ex/tree/main/ex-2)
 
+[ex-circular-buffer](https://github.com/NatsuDrag9/tdd-embedded-c-ex/tree/main/ex-circular-buffer-fifo)
+
 ---
 Articles:
+
+I did not write about ex-1 and ex-2 as their solutions were provided in the book.
 
 [Circula Buffer Exercise](https://rohitimandi.medium.com/test-driven-development-for-embedded-c-by-james-w-grenning-circular-buffer-solution-6a9238fb7b32)
