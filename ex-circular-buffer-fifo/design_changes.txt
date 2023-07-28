@@ -1,0 +1,22 @@
+Design improvements after TDD:
+
+1.) Decoupled creation and intialization of circular buffer
+Initially, I wanted to create and initialize the buffer in a single function. However, the following tests to check whether: 
+(i) the execution of malloc function
+(ii) the read and write pointers were set to NULL initially
+(iii) the flags were set appropriate initial bool values
+(iv) the array values were initialized to 0
+
+forced me to implement the create and initialization functions separately to ensure that each of the above tests did exactly what they were supposed to do and, NOTHING MORE
+
+2.) Pointer wrapping and checking for out-of-bounds
+This test was included in my initial test list. Thanks to the TDD process, I could identify this issue, create relevant tests and write code to wrap the read and write pointers when they pointed to the 5th element of the array.
+
+3.) Circular buffer full and empty
+This was the most challenging part of the exercise for me. 
+
+The first challenge was to notify the user when the buffer was full/empty. I updated the structure of circular buffer to include the isBufferFull and isBufferEmpty flags (and, subsequently updated the tests followed by changes in the Init function. So, the flags and their tests were not included in the initial design until I started working on this part).
+
+The second challenge was to appropriately check when the buffer was full/empty (which includes read/write pointer wrapping). After initialization, both pointers pointed to the first element of the array. The condition for full/empty is readPtr == writePtr which generated an erroneous output during the first write, thus the adverb "appropriately". 
+
+Again, thanks to TDD, I could find this issue during development and fix it by placing the Is_Buffer_Full and Is_Buffer_Empty() functions in a particular order. The Is_Buffer_Full() function was placed after writePtr was incremented while the Is_Buffer_Empty() function was placed before reading the value.

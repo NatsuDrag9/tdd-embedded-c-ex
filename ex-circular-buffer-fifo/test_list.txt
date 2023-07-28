@@ -1,0 +1,46 @@
+This file consists a list of all the tests for the FIFO circular buffer.
+
+---------------------------------------------------------------------------------------------------
+I wanted to develop test cases for the design where the implementation of the 
+struct CircularBuffer was hidden from the user but could not because of the 
+error - "dereferencing pointer to incomplete type CircularBuffer". So, changed
+the design in which the struct CircularBuffer is defined in the header file.
+---------------------------------------------------------------------------------------------------
+
+Test to check whether a valid circular buffer has been created or not -- DONE
+
+Initialization test - (i) read and write pointers are set to NULL after creation;  -- DONE
+                      (ii) all values of the buffer are set to 0 after creation -- DONE
+                      (iii) initialize full flag to false and empty flag to true
+
+Test for readPtr pointing to first element of buffer after initialization -- DONE
+
+Test for writePtr pointing to first element of buffer after initialization -- DONE
+
+Size of buffer is not 0 after creation -- DONE
+
+Test for buffer full -- handle what happens when buffer is full -- DONE
+
+Test for writePtr wrap -- DONE
+
+Test for writePtr lower and upper outofbounds (throw an error?) -- DONE, yes threw an error
+
+Test for buffer empty -- handle what happens when buffer is empty -- DONE
+
+Test for readptr wrap -- DONE
+
+Test for readPtr lower and upper outofbounds (throw an error?) -- DONE, yes threw an error
+
+Test for write operation -- 
+        (i) Pointer increments correctly -- DONE
+        (ii) Correct value was written -- DONE
+ 
+Test for read operation --
+        (i) Pointer increments correctly -- DONE
+        (ii) Correct value was read -- DONE
+
+Test to check whether the created circular buffer has been destroyed or not
+        (i) ptrCircularBuffer should be set to NULL -- DONE
+        (ii) check whether allocated pointer is actually being freed.
+        Handle the case where NULL ptr is sent or already freed pointer is sent. -- DONE
+        
