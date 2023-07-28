@@ -1,6 +1,6 @@
 Design improvements after TDD:
 
-1.) Decoupled creation and intialization of circular buffer
+1.) Decoupled creation and initialization of circular buffer
 Initially, I wanted to create and initialize the buffer in a single function. However, the following tests to check whether: 
 (i) the execution of malloc function
 (ii) the read and write pointers were set to NULL initially
