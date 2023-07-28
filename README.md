@@ -7,6 +7,7 @@ As the exercises were either entirely unique and had no overlap or, additional t
 Exercises:
 
 [ex-1 on sprintf](https://github.com/NatsuDrag9/tdd-embedded-c-ex/tree/main)
+
 [ex-2 Led Driver](https://github.com/NatsuDrag9/tdd-embedded-c-ex/tree/main/ex-2)
 
 ---
