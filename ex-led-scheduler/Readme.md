@@ -6,8 +6,13 @@ Build using Autotools -- GNU toolchain
 1.) Pull this git repo <br />
 ```git pull origin main```
 
-2.) First compile CPPUTEST <br />
-The cpputest is compiled using Autotools according to the instructions mentioned in the [readme](https://github.com/jwgrenning/cpputest-starter-project/blob/master/readme/cpputest-starter-kit-readme.pdf) file of [cpputest-starter-project](https://github.com/jwgrenning/cpputest-starter-project) by James W. Grenning.
+2.) Build CPPUTEST using Autotools <br />
+```cd /cpputest```
+```autoreconf . -i```
+```./configure```
+```make tdd```
+
+The cpputest is compiled according to the instructions mentioned in the [Using CppUTest with Makefileworker.mk and gcc]url(https://cpputest.github.io/).
 
 3.) ```cd ex-led-scheduler/unit-tests```
 
@@ -15,6 +20,8 @@ The cpputest is compiled using Autotools according to the instructions mentioned
 ```EXPORT CPPUTEST_HOME=../cpputest```
 
 5.) Run ```make all```
+
+Refer [readme](https://github.com/jwgrenning/cpputest-starter-project/blob/master/readme/cpputest-starter-kit-readme.pdf) file of [cpputest-starter-project](https://github.com/jwgrenning/cpputest-starter-project) by James W. Grenning for more details about  steps 3 to 5.
 
 ---
 
