@@ -12,7 +12,7 @@ Build using Autotools -- GNU toolchain
 ```./configure``` <br />
 ```make tdd```
 
-The cpputest is compiled according to the instructions mentioned in the [Using CppUTest with Makefileworker.mk and gcc](https://cpputest.github.io/).
+The cpputest is compiled according to the instructions mentioned in [Using CppUTest with Makefileworker.mk and gcc](https://cpputest.github.io/).
 
 3.) ```cd ex-led-scheduler/unit-tests```
 
