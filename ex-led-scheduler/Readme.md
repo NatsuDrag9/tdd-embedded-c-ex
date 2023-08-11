@@ -34,8 +34,8 @@ Run the following commands in the terminal
 Pull this git repo <br />
 ```git pull origin main```
 
-Build using docker. Omit sudo if the **user** has been added to **docker** group
+Build using docker. Omit sudo if the **user** has been added to **docker** group <br />
 ```sudo docker build -t ex-led-scheduler:latest ./```. <br /> 
 
-Run using the docker engine
+Run using the docker engine <br />
 ```sudo docker run ex-led-scheduler```
