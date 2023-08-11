@@ -8,7 +8,8 @@ The cpputest is compiled using Autotools according to the instructions mentioned
 
 2.) ```cd ex-led-scheduler/unit-tests```
 
-3.) Set the path of the environment variable CPPUTEST_HOME for successful compilation: EXPORT CPPUTEST_HOME=../cpputest
+3.) Set the path of the environment variable CPPUTEST_HOME for successful compilation: <br >
+```EXPORT CPPUTEST_HOME=../cpputest```
 
 3.) Run ```make all```
 
