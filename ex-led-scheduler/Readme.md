@@ -1,7 +1,7 @@
 This is an exercise on Test Driven Development for embedded systems. The cpputest framework from [cpputest-starter-project](https://github.com/jwgrenning/cpputest-starter-project) is used to test the Led scheduler example in chapter 8 of the book.
 
 ---
-Build using Autotools -- GNU toolchain 
+## **Build using Autotools -- GNU toolchain**
 
 1.) Pull this git repo <br />
 ```git pull origin main```
@@ -25,4 +25,13 @@ Refer [readme](https://github.com/jwgrenning/cpputest-starter-project/blob/maste
 
 ---
 
-Build using docker 
+## **Build using Docker**
+
+Ensure that you have docker engine installed in your system. If not, visit [Install Docker Engine](https://docs.docker.com/engine/install/) for the installation guide.
+
+Run the following commands in the terminal
+
+```sudo docker build -t ex-led-scheduler:latest ./```. <br /> 
+Omit sudo if the **user** has been added to **docker** group
+
+```sudo docker run ex-led-scheduler```
