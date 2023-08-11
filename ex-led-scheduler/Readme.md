@@ -31,6 +31,9 @@ Ensure that you have docker engine installed in your system. If not, visit [Inst
 
 Run the following commands in the terminal
 
+Pull this git repo <br />
+```git pull origin main```
+
 ```sudo docker build -t ex-led-scheduler:latest ./```. <br /> 
 Omit sudo if the **user** has been added to **docker** group
 
