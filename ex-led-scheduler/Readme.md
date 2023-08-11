@@ -7,9 +7,9 @@ Build using Autotools -- GNU toolchain
 ```git pull origin main```
 
 2.) Build CPPUTEST using Autotools <br />
-```cd /cpputest```
-```autoreconf . -i```
-```./configure```
+```cd /cpputest``` <br />
+```autoreconf . -i``` <br />
+```./configure``` <br />
 ```make tdd```
 
 The cpputest is compiled according to the instructions mentioned in the [Using CppUTest with Makefileworker.mk and gcc](https://cpputest.github.io/).
