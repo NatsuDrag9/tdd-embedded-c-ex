@@ -41,6 +41,6 @@ Removed schedule light OFF tests because the production code was restructured in
 
 14.) Remove non-scheduled light schedule -- DONE
 
-15.) Schedule the maximum supported number of events (128)
+15.) Schedule the maximum supported number of events (128) -- DONE
 
-16.) Schedule too many events
+16.) Schedule too many events -- DONE
