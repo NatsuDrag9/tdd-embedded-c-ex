@@ -25,7 +25,7 @@ Refer [readme](https://github.com/jwgrenning/cpputest-starter-project/blob/maste
 
 ---
 
-## **Build using Docker**
+## **Build using Docker (Recommended)**
 
 Ensure that you have docker engine installed in your system. If not, visit [Install Docker Engine](https://docs.docker.com/engine/install/) for the installation guide.
 
