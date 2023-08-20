@@ -2,5 +2,6 @@ This is an exercise on Test Driven Development for embedded systems. The Unity t
 
 ---
 
-Build and run with the ```make```
+Build and run with ```make```
+
 Run ```make clean``` to clean the build files
