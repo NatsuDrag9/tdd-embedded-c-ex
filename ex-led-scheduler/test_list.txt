@@ -1,0 +1,46 @@
+The first test before all other Light Scheduler tests
+
+Test to check whether the Wakeup() function of Light Scheduler is registered properly by the TimeService -- DONE
+
+
+-----------------------------------------------------------------------
+1.) Initialization tests
+(a) Lights are not changed at initialization -- DONE
+(b) Nothing happens when no schedule -- DONE
+
+2.) Tests that check:
+(a) Time is wrong, day is wrong, no lights are changed -- DONE
+(b) Day is right, time is wrong, no lights are changed -- DONE
+(c) Day is wrong, time is right, no lights are changed -- DONE
+(d) Day is right, time is right, the right light is turned ON -- DONE
+(e) Day is right, time is right, the right light is turned OFF -- DONE
+
+3.) Schedule everyday tests
+(a) Schedule a light to turn ON but it's not time yet so no change -- DONE
+(b) Schedule a light to turn ON and it's the right time so the light turns ON -- DONE
+
+**********
+Removed schedule light OFF tests because the production code was restructured in a way that to reduce redundancy. Testing either for light ON or light OFF would do the job for the other.
+**********
+(c) Schedule lights to turn OFF but it's not time yet so no change
+(d) Schedule a light to turn OFF and it's the right time so the light turns OFF
+
+4.) Schedule all weekdays -- DONE
+
+5.) Schedule weekend days tests
+(a) Schedule a light to turn ON on WEEKEND but it's not the weekend yet so no change -- DONE
+(b) Schedule a light to turn OFF on WEEKEND but it's not weekend yet so no change -- DONE
+
+6.) Remove schedule event
+
+11.) Remove non-existent event
+
+12.) Multiple scheduled events at the same time
+
+13.) Multiple scheduled events for the same light
+
+14.) Remove non-scheduled light schedule
+
+15.) Schedule the maximum supported number of events (128)
+
+16.) Schedule too many events
