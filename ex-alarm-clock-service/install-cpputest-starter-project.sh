@@ -9,7 +9,7 @@ cd ${UNITTEST_DIR}/
 # Set the path for CPPUTEST_HOME variable
 export CPPUTEST_HOME=../cpputest
 
-# Remove all test files from the repo to run the led-scheduler test files
+# Remove all test files from the repo to run the alarm-clock-service test files
 rm makefile
 
 cd tests/
