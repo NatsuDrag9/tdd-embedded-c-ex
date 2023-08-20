@@ -115,7 +115,8 @@ static int scheduleEvent(int id, Day day, int minuteOfDay, int event)
 void LightScheduler_Create(void)
 {
     int i;
-    scheduledEvent.id = UNUSED;
+    /* For single event */
+    // scheduledEvent.id = UNUSED;
 
     for (i = 0; i < MAX_EVENTS; i++)
     {
