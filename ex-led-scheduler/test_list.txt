@@ -31,15 +31,15 @@ Removed schedule light OFF tests because the production code was restructured in
 (a) Schedule a light to turn ON on WEEKEND but it's not the weekend yet so no change -- DONE
 (b) Schedule a light to turn OFF on WEEKEND but it's not weekend yet so no change -- DONE
 
-6.) Remove schedule event
+6.) Remove schedule event -- DONE
 
-11.) Remove non-existent event
+11.) Remove non-existent event -- DONE
 
-12.) Multiple scheduled events at the same time
+12.) Multiple scheduled events at the same time -- DONE
 
-13.) Multiple scheduled events for the same light
+13.) Multiple scheduled events for the same light -- DONE
 
-14.) Remove non-scheduled light schedule
+14.) Remove non-scheduled light schedule -- DONE
 
 15.) Schedule the maximum supported number of events (128)
 
