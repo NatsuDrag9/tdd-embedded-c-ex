@@ -18,7 +18,7 @@ typedef struct
     int event;
 } ScheduledLightEvent;
 
-static ScheduledLightEvent scheduledEvent;
+// static ScheduledLightEvent scheduledEvent;
 static ScheduledLightEvent scheduledEvents[MAX_EVENTS];
 
 // Local and helper functions declarations
