@@ -1,13 +1,14 @@
-# Clone the cpputest-starter-project repository
-git clone https://github.com/jwgrenning/cpputest-starter-project.git
+# Set the unit-test directory name
+CPPUTEST_DIR=unit-tests
 
-CPPUTEST_DIR=cpputest-starter-project
+# Clone the cpputest-starter-project repository
+git clone https://github.com/jwgrenning/cpputest-starter-project.git ${CPPUTEST_DIR}
 
 # Change to the repo
 cd ${CPPUTEST_DIR}/
 
-# Set the path for CPPUTEST_HOME variable
-export CPPUTEST_HOME=../cpputest
+# # Set the path for CPPUTEST_HOME variable
+# export CPPUTEST_HOME=../cpputest
 
 # Remove all test files from the repo to run the led-scheduler test files
 rm makefile

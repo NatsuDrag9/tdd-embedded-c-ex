@@ -19,6 +19,10 @@ WORKDIR /app/ex-led-scheduler/
 COPY inc/ ./inc/
 COPY src/ ./src/
 
+# Copy the application level main.c and makefile
+COPY main.c ./
+COPY Makefile ./
+
 # Copy the test files and makefile
 COPY ./*.cpp ./
 COPY ./makefile ./
@@ -35,10 +39,13 @@ RUN chmod +x ./install-cpputest-starter-project.sh
 # Run the bash script
 RUN ./install-cpputest-starter-project.sh
 
-# Change the working directory to run the makefile
-WORKDIR /app/ex-led-scheduler/cpputest-starter-project/
+# Change the working directory to set environment variable
+WORKDIR /app/ex-led-scheduler/unit-tests/
 
 # Set the environment variable
 ENV CPPUTEST_HOME=../cpputest
 
-CMD ["make"]
+# Change the working directory to run the project makefile
+WORKDIR /app/ex-led-scheduler/
+
+CMD ["/bin/sh", "-c", "make test"]
