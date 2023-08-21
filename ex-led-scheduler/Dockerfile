@@ -20,8 +20,8 @@ COPY inc/ ./inc/
 COPY src/ ./src/
 
 # Copy the test files and makefile
-COPY unit-tests/tests/*.cpp ./
-COPY unit-tests/makefile ./
+COPY ./*.cpp ./
+COPY ./makefile ./
 
 # Set the working directory for the following commands
 WORKDIR /app/ex-led-scheduler/
