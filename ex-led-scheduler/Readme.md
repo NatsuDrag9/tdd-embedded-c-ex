@@ -35,9 +35,9 @@ Change to project directory <br />
 6.) Run the unit-tests<br />
 ```make test```
 
-7.) Cleanup
+7.) Cleanup <br />
 ```make clean```<br />
-```make clean_test```<br />
+```make clean_test```
 
 Refer [readme](https://github.com/jwgrenning/cpputest-starter-project/blob/master/readme/cpputest-starter-kit-readme.pdf) file of [cpputest-starter-project](https://github.com/jwgrenning/cpputest-starter-project) by James W. Grenning for more details about  steps 3 to 5.
 
