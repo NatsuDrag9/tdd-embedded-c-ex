@@ -27,17 +27,19 @@ Change to the unit-tests directory <br />
 
 The cpputest is compiled according to the instructions mentioned in [Using CppUTest with Makefileworker.mk and gcc](https://cpputest.github.io/). Refer [readme](https://github.com/jwgrenning/cpputest-starter-project/blob/master/readme/cpputest-starter-kit-readme.pdf) file of [cpputest-starter-project](https://github.com/jwgrenning/cpputest-starter-project) by James W. Grenning for more details about  steps 2 to 6.
 
-Change to project directory <br />
-7.) Build the production code and generate the ```app.elf``` output file <br />
+7.) Change to project directory <br />
+```cd ..```
+
+8.) Build the production code and generate the ```app.elf``` output file <br />
 ```make all``` 
 
-8.) Run the application <br />
+9.) Run the application <br />
 ```./build/app.elf``` 
 
-9.) Run the unit-tests<br />
+10.) Run the unit-tests<br />
 ```make test```
 
-10.) Cleanup <br />
+11.) Cleanup <br />
 ```make clean```<br />
 ```make clean_test```
 
