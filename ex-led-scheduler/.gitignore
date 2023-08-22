@@ -5,7 +5,7 @@
 .elf
 
 # CppUTest framework
-cpputest
+cpputest/
 
 # cpputest-starter-project
-unit-tests
+unit-tests/
