@@ -24,8 +24,8 @@ COPY main.c ./
 COPY Makefile ./
 
 # Copy the test files and makefile
-COPY ./*.cpp ./
-COPY ./makefile ./
+COPY ./ex-unit-tests/*.cpp ./
+COPY ./ex-unit-tests/makefile ./
 
 # Set the working directory for the following commands
 WORKDIR /app/ex-led-scheduler/
