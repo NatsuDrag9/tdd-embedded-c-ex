@@ -31,7 +31,7 @@ Change to project directory <br />
 5.) Build the production code and generate the ```app.elf``` output file <br />
 ```make all``` 
 
-6.) Run the application code <br />
+6.) Run the application <br />
 ```./build/app.elf``` 
 
 7.) Run the unit-tests<br />
