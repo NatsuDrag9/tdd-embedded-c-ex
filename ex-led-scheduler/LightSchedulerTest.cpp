@@ -236,6 +236,8 @@ TEST(LightScheduler, RemoveRecyclesScheduleSlot)
         LONGS_EQUAL(LS_OK, LightScheduler_ScheduleTurnOn(6, MONDAY, 600 + i));
     }
     LightScheduler_ScheduleRemove(6, MONDAY, 600);
+
+    /* COULDN'T FIX THIS ERROR */
     // LONGS_EQUAL(LS_OK, LightScheduler_ScheduleTurnOn(13, MONDAY, 1000));
 }
 
