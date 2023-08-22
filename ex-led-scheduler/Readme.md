@@ -21,12 +21,23 @@ This is an exercise on Test Driven Development for embedded systems. The cpputes
 
 The cpputest is compiled according to the instructions mentioned in [Using CppUTest with Makefileworker.mk and gcc](https://cpputest.github.io/).
 
+Change to the unit-tests directory <br />
 3.) ```cd ex-led-scheduler/unit-tests```
 
 4.) Set the path of the environment variable CPPUTEST_HOME for successful compilation: <br >
 ```EXPORT CPPUTEST_HOME=../cpputest```
 
-5.) Run ```make all```
+Change to project directory <br />
+5.) Build the production code and generate the ```app.elf``` output file
+```make all``` <br />
+```./build/app.elf``` <br />
+
+6.) Run the unit-tests<br />
+```make test```
+
+7.) Cleanup
+```make clean```<br />
+```make clean_test```<br />
 
 Refer [readme](https://github.com/jwgrenning/cpputest-starter-project/blob/master/readme/cpputest-starter-kit-readme.pdf) file of [cpputest-starter-project](https://github.com/jwgrenning/cpputest-starter-project) by James W. Grenning for more details about  steps 3 to 5.
 
