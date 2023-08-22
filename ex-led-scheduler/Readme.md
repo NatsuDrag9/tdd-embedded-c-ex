@@ -6,7 +6,14 @@ This is an exercise on Test Driven Development for embedded systems. The cpputes
 1.) Pull this git repo <br />
 ```git pull origin main```
 
-2.) Build CPPUTEST using Autotools <br />
+2.) Clone the CPPUTest framework into the project directory <br />
+```git clone https://github.com/cpputest/cpputest.git```
+
+3.) Clone the cpputest-starter-project into the ```unit-tests``` directory
+```git clone https://github.com/jwgrenning/cpputest-starter-project.git unit-tests```
+
+
+4.) Build CPPUTEST using Autotools <br />
 ```cd /cpputest``` <br />
 ```autoreconf . -i``` <br />
 ```./configure``` <br />
