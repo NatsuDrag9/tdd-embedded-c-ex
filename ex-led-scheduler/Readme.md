@@ -28,14 +28,16 @@ Change to the unit-tests directory <br />
 ```EXPORT CPPUTEST_HOME=../cpputest```
 
 Change to project directory <br />
-5.) Build the production code and generate the ```app.elf``` output file
-```make all``` <br />
-```./build/app.elf``` <br />
+5.) Build the production code and generate the ```app.elf``` output file <br />
+```make all``` 
 
-6.) Run the unit-tests<br />
+6.) Run the application code <br />
+```./build/app.elf``` 
+
+7.) Run the unit-tests<br />
 ```make test```
 
-7.) Cleanup <br />
+8.) Cleanup <br />
 ```make clean```<br />
 ```make clean_test```
 
