@@ -1,0 +1,21 @@
+Notes on tests:
+
+1.) I could not resolve test failure pertaining to RemoveRecyclesScheduleSlot
+
+2.) Completed all the test cases
+
+
+Notes on bulding the project and build automation using Github Actions
+1.) Made the project modular
+After removing cpputest and cpputest-starter-project from this project directory even for the build process using autotools, I changed the folder structure with the unit tests and test makefile in ex-unit-tests/. 
+
+The makefile in the project's root directory controls the execution of the project (make, make test, make clean, make clean_test -- refer readme file).
+
+2.) Build automation and CI using Github Actions
+I created a unit_tests_led_scheduler.yml which was taken from Shawn Hymel's "Intro to CI/CD Part 3" (https://youtu.be/lZWFmEhIhpY?t=2681).
+The dockerfile was modified to copy unit tests and test makefile from ex-unit-tests/.
+
+3.) Time Consuming
+It took me three days to understand and implement the build automation using Github Actions in a presentable manner. It was important to make the repository and the project directory presentable because:
+(i) If asked, I have to talk about this process in the interview
+(ii) I could not visualize the final presentable output so I was experimenting with different possibilites (like creating multiple branches, watching videos on using Jenkins for embedded systems) until I found an elegant one (thanks to Shawn)
