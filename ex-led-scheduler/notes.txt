@@ -1,9 +1,13 @@
 Notes on tests:
 
-1.) I could not resolve test failure pertaining to RemoveRecyclesScheduleSlot
+1.) Completed all the test cases except RemoveRecyclesScheduleSlot as I could not resolve test failure pertaining to RemoveRecyclesScheduleSlot
 
-2.) Completed all the test cases
+2.) In the medium article, draw the architecture flow diagram
 
+3.) I faced two challenges in this exercise: 
+(i) Principle of linktime substitution _ This was tricky in the beginning but I eventually understood the principle after implementating test doubles for each of the interfaces.
+
+(ii) Little to no understanding of the architecture and each component's functionality of the led-scheduler application made it difficult to develop test doubles. I had to read the sections that briefly describe the architecture (8.2, 8.3 and 8.4) multiple times during the implementation of the test doubles. Although the book elaborates on the functionality of each component of the led-scheduler application in the example tests, I would have preferred an elaborate description on the application and its components before the process developing test cases. However, it also exposed me to a situation which requires development of test cases without having a concrete understanding of the application (or/and requirements).
 
 Notes on bulding the project and build automation using Github Actions
 1.) Made the project modular
