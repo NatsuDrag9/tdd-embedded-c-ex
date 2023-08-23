@@ -1,6 +1,0 @@
-[submodule "ex-alarm-clock-service/cpputest"]
-	path = ex-alarm-clock-service/cpputest
-	url = https://github.com/cpputest/cpputest.git
-[submodule "ex-alarm-clock-service/unit-tests"]
-	path = ex-alarm-clock-service/unit-tests
-	url = https://github.com/jwgrenning/cpputest-starter-project
