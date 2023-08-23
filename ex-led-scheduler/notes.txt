@@ -23,3 +23,11 @@ The dockerfile was modified to copy unit tests and test makefile from ex-unit-te
 It took me three days to understand and implement the build automation using Github Actions in a presentable manner. It was important to make the repository and the project directory presentable because:
 (i) If asked, I have to talk about this process in the interview
 (ii) I could not visualize the final presentable output so I was experimenting with different possibilites (like creating multiple branches, watching videos on using Jenkins for embedded systems) until I found an elegant one (thanks to Shawn)
+
+Build automation using Jenkins Freestyle project
+1.) Jenkins setup same as the steps mentioned in the question of https://stackoverflow.com/questions/46822898/ip-address-of-localhost8080-in-webhooks-of-github-jenkins
+2.) ngrok installation - https://stackoverflow.com/questions/46822898/ip-address-of-localhost8080-in-webhooks-of-github-jenkins
+
+Build automation using Jenkins Freestyle project
+1.) Jenkins setup same as the steps mentioned in the question of https://stackoverflow.com/questions/46822898/ip-address-of-localhost8080-in-webhooks-of-github-jenkins
+2.) ngrok installation - https://stackoverflow.com/questions/46822898/ip-address-of-localhost8080-in-webhooks-of-github-jenkins
