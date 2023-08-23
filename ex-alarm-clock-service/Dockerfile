@@ -1,4 +1,10 @@
-FROM gcc:12.2.0
+# FROM gcc:12.2.0
+FROM ubuntu:22.04
+
+# Install build tools
+RUN apt update && \
+    apt install -y wget build-essential autoconf automake libtool && \
+    apt install -y git
 
 # Install cpputest
 WORKDIR /app/ex-alarm-clock-service/
@@ -19,9 +25,13 @@ WORKDIR /app/ex-alarm-clock-service/
 COPY inc/ ./inc/
 COPY src/ ./src/
 
+# Copy the application level main.c and makefile
+COPY main.c ./
+COPY Makefile ./
+
 # Copy the test files and makefile
-COPY unit-tests/tests/*.cpp ./
-COPY unit-tests/makefile ./
+COPY ex-unit-tests/*.cpp ./
+COPY ex-unit-tests/makefile ./
 
 # Set the working directory for the following commands
 WORKDIR /app/ex-alarm-clock-service/
@@ -41,4 +51,4 @@ WORKDIR /app/ex-alarm-clock-service/unit-tests/
 # Set the environment variable
 ENV CPPUTEST_HOME=../cpputest
 
-CMD ["make"]
+CMD ["/bin/sh", "-c", "make test"]
