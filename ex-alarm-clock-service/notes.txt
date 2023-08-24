@@ -31,3 +31,12 @@ Show the UML diagram
 (e) It is given that the timer interrupt of the underlying RTOS pings every 100 ms
 
 The test list is shown below
+
+
+Resources used:
+1.) It is recommended to provide absolute paths to the variables declared in CppUTest's MakefileWorker.To dynamically generate absolute paths within test makefile, follow the instructions by Matheus Marques in https://matheusmbar.com/bugfree-robot/2019/04/05/makefile-first-test.html 
+
+2.) Shawn Hymel's Intro to CI/CD part 3 helped me create my own CI workflow using github actions and structure my project directory accordingly. I also created my own test makefile that defines the variables MakefileWorker.mk
+https://www.youtube.com/watch?v=lZWFmEhIhpY
+
+3.) 
