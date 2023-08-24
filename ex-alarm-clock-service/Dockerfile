@@ -12,10 +12,8 @@ WORKDIR /app/ex-alarm-clock-service/
 # Copy the bash script that installs CppUTest framework
 COPY install-cpputest.sh ./
 
-# Make the bash script executable
+# Make the bash script executable and run it
 RUN chmod +x ./install-cpputest.sh
-
-# Run the bash script
 RUN ./install-cpputest.sh
 
 # Set the working directory for the following commands
@@ -29,26 +27,27 @@ COPY src/ ./src/
 COPY main.c ./
 COPY Makefile ./
 
-# Copy the test files and makefile
-COPY ex-unit-tests/*.cpp ./
-COPY ex-unit-tests/makefile ./
+# Copy the test files and test makefile
+# COPY ex-unit-tests/*.cpp ./
+# COPY ex-unit-tests/makefile ./
+COPY ex-unit-tests/ ./ex-unit-tests/
 
 # Set the working directory for the following commands
-WORKDIR /app/ex-alarm-clock-service/
+# WORKDIR /app/ex-alarm-clock-service/
 
-# Copy the bash script that installs cpputest-starter-project
-COPY install-cpputest-starter-project.sh ./
+# # Copy the bash script that installs cpputest-starter-project
+# COPY install-cpputest-starter-project.sh ./
 
-# Make the bash script executable
-RUN chmod +x ./install-cpputest-starter-project.sh
+# # Make the bash script executable
+# RUN chmod +x ./install-cpputest-starter-project.sh
 
-# Run the bash script
-RUN ./install-cpputest-starter-project.sh
+# # Run the bash script
+# RUN ./install-cpputest-starter-project.sh
 
-# Change the working directory to run the makefile
-WORKDIR /app/ex-alarm-clock-service/unit-tests/
+# # Change the working directory to run the makefile
+# WORKDIR /app/ex-alarm-clock-service/unit-tests/
 
-# Set the environment variable
-ENV CPPUTEST_HOME=../cpputest
+# # Set the environment variable
+# ENV CPPUTEST_HOME=../cpputest
 
 CMD ["/bin/sh", "-c", "make test"]
