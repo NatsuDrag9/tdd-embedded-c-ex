@@ -3,11 +3,6 @@ This is an exercise on Test Driven Development for embedded systems. The cpputes
 ---
 ## **Build using Autotools -- GNU toolchain**
 
-This is an exercise on Test Driven Development for embedded systems. The cpputest framework from [cpputest-starter-project](https://github.com/jwgrenning/cpputest-starter-project) is used to test the Led scheduler example in chapter 8 of the book.
-
----
-## **Build using Autotools -- GNU toolchain**
-
 1.) Pull this git repo <br />
 ```git pull origin main```
 
@@ -25,7 +20,7 @@ This is an exercise on Test Driven Development for embedded systems. The cpputes
 ```make tdd```
 
 Change to the unit-tests directory <br />
-5.) ```cd ex-led-scheduler/unit-tests```
+5.) ```cd ex-alarm-clock-service/unit-tests```
 
 6.) Set the path of the environment variable CPPUTEST_HOME for successful compilation: <br >
 ```EXPORT CPPUTEST_HOME=../cpputest```
