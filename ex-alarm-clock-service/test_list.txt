@@ -1,0 +1,37 @@
+The first test before all other alarm clock service (ACS) tests
+
+Test to check whether the Wakeup() function of alarm clock service (ACS) is registered properly by the TimeService -- 
+
+-----------------------------------------------------------------------------------------------------
+1.) Initialization tests
+(a) Alarms are not changed at initialization -- 
+(b) Nothing happens when no schedule -- 
+
+2.) Create a single alarm by setting the date and time
+
+3.) Tests that check whether:
+(a) Time is wrong, date is wrong, no alarms are triggered -- 
+(b) Date is right, time is wrong, no alarms are triggered -- 
+(c) Date is wrong, time is right, no alarms are triggered -- 
+
+4.) For a single alarm, tests that check whether:
+(a) The corresponding alarm is triggered when date and time are right (by default) -- 
+(b) The corresponding alarm is turned OFF when date and time are right -- 
+(c) The corresponding alarm is snoozed when date and time are right --
+
+5.) Update created alarm
+
+6.) Remove/delete created alarm
+
+7.) Create multiple alarms by setting date and time
+
+8.) For a multiple alarms, tests that check whether:
+(a) The corresponding alarms is triggered when date and time are right (by default) -- 
+(b) The corresponding alarms is turned OFF when date and time are right -- 
+(c) The corresponding alarms is snoozed when date and time are right --
+
+9.) Update multiple alarms
+
+10.) Remove/delete multiple created alarms
+
+11.) Too many alarms created
