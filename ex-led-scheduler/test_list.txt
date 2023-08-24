@@ -8,7 +8,7 @@ Test to check whether the Wakeup() function of Light Scheduler is registered pro
 (a) Lights are not changed at initialization -- DONE
 (b) Nothing happens when no schedule -- DONE
 
-2.) Tests that check:
+2.) Tests that check whether:
 (a) Time is wrong, day is wrong, no lights are changed -- DONE
 (b) Day is right, time is wrong, no lights are changed -- DONE
 (c) Day is wrong, time is right, no lights are changed -- DONE
@@ -33,14 +33,14 @@ Removed schedule light OFF tests because the production code was restructured in
 
 6.) Remove schedule event -- DONE
 
-11.) Remove non-existent event -- DONE
+7.) Remove non-existent event -- DONE
 
-12.) Multiple scheduled events at the same time -- DONE
+8.) Multiple scheduled events at the same time -- DONE
 
-13.) Multiple scheduled events for the same light -- DONE
+9.) Multiple scheduled events for the same light -- DONE
 
-14.) Remove non-scheduled light schedule -- DONE
+10.) Remove non-scheduled light schedule -- DONE
 
-15.) Schedule the maximum supported number of events (128) -- DONE
+11.) Schedule the maximum supported number of events (128) -- DONE
 
-16.) Schedule too many events -- DONE
+12.) Schedule too many events -- DONE
