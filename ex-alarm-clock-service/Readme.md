@@ -55,7 +55,7 @@ Pull this git repo <br />
 ```git pull origin main```
 
 Build using docker. Omit sudo if the **user** has been added to **docker** group <br />
-```sudo docker build -t ex-led-scheduler:latest ./```. <br /> 
+```sudo docker build -t ex-acs-image:latest ./```. <br /> 
 
 Run using the docker engine <br />
-```sudo docker run ex-led-scheduler```
+```sudo docker run --rm ex-acs-image:latest```
