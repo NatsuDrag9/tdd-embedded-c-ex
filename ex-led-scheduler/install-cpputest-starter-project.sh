@@ -16,7 +16,7 @@ rm makefile
 cd tests/
 rm *.cpp
 
-# Change Docker's working directory
+# Change to Docker's working directory
 cd ..
 cd ..
 
