@@ -2,9 +2,9 @@
 
 extern "C"
 {
-#include "../../inc/LightControllerSpy.h"
-#include "../../inc/LightScheduler.h"
-#include "../../inc/FakeTimeService.h"
+#include "../inc/LightControllerSpy.h"
+#include "../inc/LightScheduler.h"
+#include "../inc/FakeTimeService.h"
 }
 
 // Local and helper functions declaration
