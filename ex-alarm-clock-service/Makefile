@@ -8,7 +8,7 @@ CXX ?= g++
 # Settings
 SRC_DIR = ./src
 INCLUDE_DIR = ./inc
-TEST_DIR = ./unit-tests
+TEST_DIR = ./ex-unit-tests
 BUILD_DIR = build
 OUTPUT = app.elf
 
