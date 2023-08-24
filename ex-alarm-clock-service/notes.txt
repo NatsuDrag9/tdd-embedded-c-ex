@@ -1,5 +1,33 @@
+Alarm Clock Service (ACS)
+
 Generic notes:
 1.) Updated dockerfile by changing base OS architecture to "FROM ubuntu:22.04"
 
+2.)
 
+-----------------------------------------------------------------------------------------------------
 Medium article notes:
+
+Question
+Test-drive an alarm clock service that keeps a list of time call-
+backs. In production, the timer interrupt will ping the time service
+every 100 milliseconds. When a scheduled action is ready to run,
+call the callback function.
+
+1.) Notes on the design
+
+Show the UML diagram
+
+(a) Some of the tests of ACS are directly taken from the light scheduler because their architecture and functionalities are similar. 
+
+(b) When the date and time is right, the alarms are triggered by default and another callback function expecting the following two options as parameters is called:
+(i) Turn off
+(ii) Snooze`
+
+(c) The snooze option is by default set to 5 min and cannot be changed.
+
+(d) The maximum nmber of alarms that can be created is 32 (set the upper limit myself)
+
+(e) It is given that the timer interrupt of the underlying RTOS pings every 100 ms
+
+The test list is shown below
