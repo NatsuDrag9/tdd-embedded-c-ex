@@ -14,7 +14,7 @@ backs. In production, the timer interrupt will ping the time service
 every 100 milliseconds. When a scheduled action is ready to run,
 call the callback function.
 
-1.) Notes on the design
+1.) Notes on the design:
 The architecture of the alarm clock service is shown below. Similar to architecture of the led scheduler (Fig 8.2, 8.3 and 8.4), the alarm clock service has two transitive dependencies on the hardware -- a buzzer controller and an RTOS for timer interrupts. The buzzer controller sets the buzzer either to buzz or OFF. The client can also snooze an alarm.
 
 A buzzer does not have multiple event unlike the led scheduler where each led light light/strip has 128 events.
@@ -36,13 +36,13 @@ Figures / UML diagrams
 The test list is shown below
 
 
-Project directory changes:
-1.) Unlike ex-led-schedueler, this project does not use cpputest-starter-project because I created the test makefile and the tests myself. This removes the dependency on the cpputest-starter-project when building the docker image
+2.) Project directory changes:
+(a)) Unlike ex-led-scheduler, this project does not use cpputest-starter-project because I created the test makefile and the tests myself. This removes the dependency on the cpputest-starter-project when building the docker image
 
-Resources used:
-1.) It is recommended to provide absolute paths to the variables declared in CppUTest's MakefileWorker.To dynamically generate absolute paths within test makefile, follow the instructions by Matheus Marques in https://matheusmbar.com/bugfree-robot/2019/04/05/makefile-first-test.html 
+3.) Resources used:
+(a) It is recommended to provide absolute paths to the variables declared in CppUTest's MakefileWorker.To dynamically generate absolute paths within test makefile, follow the instructions by Matheus Marques in https://matheusmbar.com/bugfree-robot/2019/04/05/makefile-first-test.html 
 
-2.) Shawn Hymel's Intro to CI/CD part 3 helped me create my own CI workflow using github actions and structure my project directory accordingly. I also created my own test makefile that defines the variables MakefileWorker.mk
+(b) Shawn Hymel's Intro to CI/CD part 3 helped me create my own CI workflow using github actions and structure my project directory accordingly. I also created my own test makefile that defines the variables MakefileWorker.mk
 https://www.youtube.com/watch?v=lZWFmEhIhpY
 
-3.) 
+(c)
