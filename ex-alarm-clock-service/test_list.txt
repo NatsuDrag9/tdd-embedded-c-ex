@@ -27,18 +27,18 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 TESTS FOR CORRECT DESIGN
 The ACS contains time callbacks. Assuming non-leap year
 1.) The first test before all other alarm clock service (ACS) tests
-Test to check whether the Wakeup() function of alarm clock service (ACS) is registered properly by the TimeService -- 
+Test to check whether the Wakeup() function of alarm clock service (ACS) is registered properly by the TimeService -- DONE
 
-2.) Test time callback when a second completes
+2.) Test time callback when a second completes -- DONE
 
-3.) Test time callback when a minute completes
+3.) Test time callback when a minute completes -- DONE
 
-4.) Test time callback when an hour completes
+4.) Test time callback when an hour completes -- DONE
 
-5.) Test time callback when a day completes
+5.) Test time callback when a day completes -- DONE
 
-6.) Test time callback when a week completes
+6.) Test time callback when a week completes -- DONE
 
-7.) Test time callback when a month completes
+7.) Test time callback when a month completes -- DONE
 
-8.) Test time callback when a year completes
+8.) Test time callback when a year completes -- DONE
