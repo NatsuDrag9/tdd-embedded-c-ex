@@ -11,7 +11,7 @@ extern "C"
 static void setDayAndTime(Day day, int time)
 {
     FakeTimeService_SetDay(day);
-    FakeTimeService_SetMinute(time);
+    FakeTimeService_SetTime(time);
 }
 
 static void checkBuzzerState(int buzzerId, int buzzerState)
