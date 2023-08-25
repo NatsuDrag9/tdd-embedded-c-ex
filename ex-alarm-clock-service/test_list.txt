@@ -1,8 +1,5 @@
-The first test before all other alarm clock service (ACS) tests
-
-Test to check whether the Wakeup() function of alarm clock service (ACS) is registered properly by the TimeService -- 
-
------------------------------------------------------------------------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+TESTS FOR WRONG DESIGN
 1.) Initialization tests
 (a) Alarms are not changed at initialization -- DONE
 
@@ -25,3 +22,23 @@ Test to check whether the Wakeup() function of alarm clock service (ACS) is regi
 6.) Multiple alarms scheduled on different buzzers to trigger on the same day and time --
 
 7.) Multiple alarms scheduled on same buzzer to trigger on the same day and time (eg. weekly alarm coincides with daily alarm) -- 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+TESTS FOR CORRECT DESIGN
+The ACS contains time callbacks
+1.) The first test before all other alarm clock service (ACS) tests
+Test to check whether the Wakeup() function of alarm clock service (ACS) is registered properly by the TimeService -- 
+
+2.) Test time callback when a second completes
+
+3.) Test time callback when a minute completes
+
+4.) Test time callback when an hour completes
+
+5.) Test time callback when a day completes
+
+6.) Test time callback when a week completes
+
+7.) Test time callback when a month completes
+
+8.) Test time callback when a year completes
