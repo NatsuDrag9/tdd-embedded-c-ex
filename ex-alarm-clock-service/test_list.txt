@@ -25,7 +25,7 @@ TESTS FOR WRONG DESIGN
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 TESTS FOR CORRECT DESIGN
-The ACS contains time callbacks
+The ACS contains time callbacks. Assuming non-leap year
 1.) The first test before all other alarm clock service (ACS) tests
 Test to check whether the Wakeup() function of alarm clock service (ACS) is registered properly by the TimeService -- 
 

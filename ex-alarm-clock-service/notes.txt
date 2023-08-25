@@ -47,7 +47,7 @@ A spy file called FakeTimeService.c that implements TimeService.h is created to 
 
 <<<<<<<< UML diagram of ACS test >>>>>>>>>
 
-The test list is shown below
+The test list shown below assumes a non-leap year
 
 -----------------------------------------------------------------------------------------------------
 2.) Project directory changes:
