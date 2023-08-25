@@ -14,7 +14,9 @@ backs. In production, the timer interrupt will ping the time service
 every 100 milliseconds. When a scheduled action is ready to run,
 call the callback function.
 
-1.) Notes on the design:
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+WRONG DESIGN as I completely misunderstood the question
+
 The architecture of the alarm clock service is shown below. Similar to architecture of the led scheduler (Fig 8.2, 8.3 and 8.4), the alarm clock service has two transitive dependencies on the hardware -- a buzzer controller and an RTOS for timer interrupts. The buzzer controller sets the buzzer either to buzz or OFF. The client can also snooze an alarm.
 
 Each led light light/strip of the led scheduler has 128 events which allows scheduling multiple events for the same light. One or more alarms cannot be triggered on a buzzer because a buzzer can only buzz for a given alarm at a time.
@@ -34,14 +36,24 @@ Figures / UML diagrams
 (d) If snoozed, the snooze time is by default set to 5 min and cannot be changed.
 
 (e) It is given that the timer interrupt of the underlying RTOS pings every 100 ms
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+1.) Notes on the design
+The architecute shown in Fig 1 is linear where the alarm clock service has a single transitive dependency which is an RTOS for timer interrupts. 
+
+<<<<<<<< UML diagram of ACS >>>>>>>>>
+
+A spy file called FakeTimeService.c that implements TimeService.h is created to test the architecture without the hardware. In other words, the transitive dependency is removed. The test architecture is shown in Fig 2
+
+<<<<<<<< UML diagram of ACS test >>>>>>>>>
 
 The test list is shown below
 
-
+-----------------------------------------------------------------------------------------------------
 2.) Project directory changes:
 (a)) Unlike ex-led-scheduler, this project does not use cpputest-starter-project because I created the test makefile and the tests myself. This removes the dependency on the cpputest-starter-project when building the docker image
 
-3.) Resources used:
+4.) Resources used:
 (a) It is recommended to provide absolute paths to the variables declared in CppUTest's MakefileWorker.To dynamically generate absolute paths within test makefile, follow the instructions by Matheus Marques in https://matheusmbar.com/bugfree-robot/2019/04/05/makefile-first-test.html 
 
 (b) Shawn Hymel's Intro to CI/CD part 3 helped me create my own CI workflow using github actions and structure my project directory accordingly. I also created my own test makefile that defines the variables MakefileWorker.mk
