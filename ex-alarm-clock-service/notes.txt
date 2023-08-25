@@ -17,21 +17,23 @@ call the callback function.
 1.) Notes on the design:
 The architecture of the alarm clock service is shown below. Similar to architecture of the led scheduler (Fig 8.2, 8.3 and 8.4), the alarm clock service has two transitive dependencies on the hardware -- a buzzer controller and an RTOS for timer interrupts. The buzzer controller sets the buzzer either to buzz or OFF. The client can also snooze an alarm.
 
-A buzzer does not have multiple event unlike the led scheduler where each led light light/strip has 128 events.
+Each led light light/strip of the led scheduler has 128 events which allows scheduling multiple events for the same light. One or more alarms cannot be triggered on a buzzer because a buzzer can only buzz for a given alarm at a time.
 
-I set the maximum number of alarms that can be created for one buzzer to 32 (picked the number myself).
+I set the maximum number of buzzers that can be serviced to 32 (picked the number myself).
 
 Figures / UML diagrams
 
 (a) Some of the tests of ACS are directly taken from the light scheduler because their architecture and functionalities are similar. 
 
-(b) When the date and time is right, the alarms are triggered by default and another callback function expecting the following two options as parameters is called:
+(b) The design does not have a separate scheduler responsible to schedule an alarm after creation. When an alarm is created it is scheduled to trigger at the set day and time by default.
+
+(c) When the date and time is right, the alarms are triggered by default and another callback function expecting the following two options as parameters is called:
 (i) Turn off
 (ii) Snooze`
 
-(c) The snooze option is by default set to 5 min and cannot be changed.
+(d) If snoozed, the snooze time is by default set to 5 min and cannot be changed.
 
-(d) It is given that the timer interrupt of the underlying RTOS pings every 100 ms
+(e) It is given that the timer interrupt of the underlying RTOS pings every 100 ms
 
 The test list is shown below
 
