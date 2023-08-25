@@ -3,12 +3,8 @@
 
 #include "TimeService.h"
 
-enum {
-    TIME_UNKNOWN = -1
-};
-
 /* API prototypes */
-void FakeTimeService_SetDay(int);
-void FakeTimeService_SetTime(int);
+WakeUpCallback FakeTimeService_GetAlarmCallback(void);
+unsigned long FakeTimeService_GetAlarmPeriod(void);
 
 #endif /* D_FAKE_TIME_SERVICE */

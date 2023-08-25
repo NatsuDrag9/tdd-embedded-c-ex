@@ -1,25 +1,34 @@
+#include <stddef.h>
 #include "../inc/FakeTimeService.h"
 
 /* Private variables */
-static Time fakeTime;
-
-void TimeService_Create(void){
-    fakeTime.dayOfWeek = -1;
-    fakeTime.minuteOfDay = -1;
-}
+static unsigned long alarmPeriod;
+static WakeUpCallback callback;
 
 /* Implementation of APIs */
-void FakeTimeService_SetDay(int day){
-    fakeTime.dayOfWeek = day;
+void TimeService_Create(void){
+    alarmPeriod = 0;
+    callback = NULL;
 }
 
-void FakeTimeService_SetTime(int minute){
-    fakeTime.minuteOfDay = minute;
+void TimeService_SetAlarmPeriodAndCallback(unsigned long ticksOfHundredms, WakeUpCallback cb){
+    alarmPeriod = ticksOfHundredms;
+    callback = cb;
 }
 
-void TimeService_GetTime(Time* time){
-    time->dayOfWeek = fakeTime.dayOfWeek;
-    time->minuteOfDay = fakeTime.minuteOfDay;
+void TimeService_ResetAlarmPeriodAndCallback(unsigned long noOfHundredms, WakeUpCallback cb){
+    if (noOfHundredms == alarmPeriod && cb == callback){
+        alarmPeriod = 0;
+        cb = NULL;
+    }
+}
+
+WakeUpCallback FakeTimeService_GetAlarmCallback(void){
+    return callback;
+}
+
+unsigned long FakeTimeService_GetAlarmPeriod(void){
+    return alarmPeriod;
 }
 
 void TimerService_Destroy(void){
