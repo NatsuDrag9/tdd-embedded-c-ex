@@ -4,22 +4,24 @@ Test to check whether the Wakeup() function of alarm clock service (ACS) is regi
 
 -----------------------------------------------------------------------------------------------------
 1.) Initialization tests
-(a) Alarms are not changed at initialization -- 
-(b) Nothing happens when no schedule -- 
+(a) Alarms are not changed at initialization -- DONE
 
-2.) Create a single alarm by setting the day and time
-
-3.) Tests that check daily, weekly, monthly and yearly alarm:
+2.) For a single alarm, tests that check:
 (a) Time is wrong, day is wrong, no alarms are triggered -- 
-(b) day is right, time is wrong, no alarms are triggered -- 
-(c) day is wrong, time is right, no alarms are triggered -- 
+(b) Day is right, time is wrong, no alarms are triggered -- 
+(c) Day is wrong, time is right, no alarms are triggered -- 
+(d) One-shot or to repeat (daily, weekly, monthly and yearly) -- 
 
-4.) Test an updated alarm
+3.) For a single alarm, test updating an alarm
 (a) Change in day only -- 
 (b) Change in time only -- 
 (c) Change in day and time -- 
 (d) Change in repeatability -- 
 
-5.) Test validity of client input to either turn OFF or snooze alarm -- 
+4.) Test validity of client input to either turn OFF or snooze alarm -- 
 
 5.) Remove/delete created alarm -- 
+
+6.) Multiple alarms scheduled on different buzzers to trigger on the same day and time --
+
+7.) Multiple alarms scheduled on same buzzer to trigger on the same day and time (eg. weekly alarm coincides with daily alarm) -- 
