@@ -18,3 +18,5 @@ Articles:
 I did not write about ex-1 and ex-2 as their solutions were provided in the book.
 
 [Circular Buffer Exercise](https://rohitimandi.medium.com/test-driven-development-for-embedded-c-by-james-w-grenning-circular-buffer-solution-6a9238fb7b32)
+
+[Alarm Clock Scheduler](https://rohitimandi.medium.com/test-driven-development-for-embedded-c-by-james-w-grenning-alarm-clock-service-solution-cf95eb726643)
