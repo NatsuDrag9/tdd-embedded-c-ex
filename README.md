@@ -12,6 +12,10 @@ Exercises:
 
 [ex-circular-buffer](https://github.com/NatsuDrag9/tdd-embedded-c-ex/tree/main/ex-circular-buffer-fifo)
 
+[ex-led-scheduler](https://github.com/NatsuDrag9/tdd-embedded-c-ex/tree/main/ex-led-scheduler)
+
+[ex-alarm-clock-service](https://github.com/NatsuDrag9/tdd-embedded-c-ex/tree/main/ex-alarm-clock-service)
+
 ---
 Articles:
 
