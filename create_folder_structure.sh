@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#####################################################################################################
+# Creates folder structure for exercises using UNITY framework
+# DO NOT USE THIS FOR EXERCISES USING CPPUTEST
+#####################################################################################################
+
 # Check if the parent directory name is provided as an argument
 if [ -z "$1" ]; then
     echo "Usage: $0 <parent_directory_name>"
