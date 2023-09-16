@@ -1,0 +1,11 @@
+# Ignore cpputest files
+/cpputest/
+/cpputest/
+
+# Ignore C++ object files
+*.o
+
+# Ignore build artifacts
+*.out
+*.elf
+*.obj
