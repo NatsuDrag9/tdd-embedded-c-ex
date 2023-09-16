@@ -1,9 +1,6 @@
 name: Unit Test
 
-on:
-  push:
-    branches:
-      - 'chp9'  # Run the test-circular-buffer-chp9 job when only pushed to this branch
+on: [push]
 
 jobs:
   test-led-scheduler:
@@ -49,7 +46,6 @@ jobs:
   test-circular-buffer-chp9:
     runs-on: ubuntu-latest
     name: Build and run ex-circular-buffer-chp9 unit tests Docker image
-    if: github.ref == 'refs/heads/chp9'
     steps:
         # Check out from this repo
       - name: Check out this repo
