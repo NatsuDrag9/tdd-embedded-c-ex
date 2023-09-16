@@ -8,37 +8,33 @@ This is an exercise on Test Driven Development for embedded systems. The cpputes
 2.) Clone the CPPUTest framework into the project directory <br />
 ```git clone https://github.com/cpputest/cpputest.git```
 
-3.) Clone the cpputest-starter-project into the ```unit-tests``` directory <br />
-```git clone https://github.com/jwgrenning/cpputest-starter-project.git unit-tests```
-
-
-4.) Build CPPUTEST using Autotools <br />
+3.) Build CPPUTEST using Autotools <br />
 ```cd /cpputest``` <br />
 ```autoreconf . -i``` <br />
 ```./configure``` <br />
 ```make tdd```
 
 Change to the unit-tests directory <br />
-5.) ```cd ex-circular-buffer-chp9/ex-unit-tests```
+4.) ```cd ex-circular-buffer-chp9/ex-unit-tests```
 
-6.) Set the path of the environment variable CPPUTEST_HOME for successful compilation: <br >
+5.) Set the path of the environment variable CPPUTEST_HOME for successful compilation: <br >
 ```EXPORT CPPUTEST_HOME=../cpputest```
 
 The cpputest is compiled according to the instructions mentioned in [Using CppUTest with Makefileworker.mk and gcc](https://cpputest.github.io/). Refer [readme](https://github.com/jwgrenning/cpputest-starter-project/blob/master/readme/cpputest-starter-kit-readme.pdf) file of [cpputest-starter-project](https://github.com/jwgrenning/cpputest-starter-project) by James W. Grenning for more details about  steps 2 to 6.
 
-7.) Change to project directory <br />
+6.) Change to project directory <br />
 ```cd ..```
 
-8.) Build the production code and generate the ```app.elf``` output file <br />
+7.) Build the production code and generate the ```app.elf``` output file <br />
 ```make all``` 
 
-9.) Run the application <br />
+8.) Run the application <br />
 ```./build/app.elf``` 
 
-10.) Run the unit-tests<br />
+9.) Run the unit-tests<br />
 ```make test```
 
-11.) Cleanup <br />
+10.) Cleanup <br />
 ```make clean```<br />
 ```make clean_test```
 
