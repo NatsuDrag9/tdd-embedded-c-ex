@@ -1,4 +1,4 @@
-This is an exercise on Test Driven Development for embedded systems. The cpputest framework from [cpputest-starter-project](https://github.com/jwgrenning/cpputest-starter-project) is used to test the alarm clock service mentioned in **Put the Knowledge to Work** section at the end chapter 8 of the book.<br />
+This is an exercise on Test Driven Development for embedded systems. The cpputest framework from [cpputest-starter-project](https://github.com/jwgrenning/cpputest-starter-project) is used to test the alarm clock service mentioned in **Put the Knowledge to Work** section at the end of ***chapter 8*** of the book.<br />
 
 ---
 ## **Build using Autotools -- GNU toolchain**
@@ -20,7 +20,7 @@ This is an exercise on Test Driven Development for embedded systems. The cpputes
 ```make tdd```
 
 Change to the unit-tests directory <br />
-5.) ```cd ex-alarm-clock-service/unit-tests```
+5.) ```cd ex-alarm-clock-service/ex-unit-tests```
 
 6.) Set the path of the environment variable CPPUTEST_HOME for successful compilation: <br >
 ```EXPORT CPPUTEST_HOME=../cpputest```
