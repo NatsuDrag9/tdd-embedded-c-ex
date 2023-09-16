@@ -42,3 +42,23 @@ jobs:
         # Delete the docker image
       - name: Remove docker image
         run: docker rmi ex-acs-image:v1
+
+  test-circular-buffer-chp9:
+    runs-on: ubuntu-latest
+    name: Build and run ex-circular-buffer-chp9 unit tests Docker image
+    steps:
+        # Check out from this repo
+      - name: Check out this repo
+        uses: actions/checkout@v3
+
+        # Build the docker image
+      - name: Build Docker image
+        run: docker build -t ex-cb-chp9-image:v1 -f ./ex-circular-buffer-chp9/Dockerfile ./ex-circular-buffer-chp9
+
+        # Run the image
+      - name: Run image
+        run: docker run --rm ex-cb-chp9-image:v1
+
+        # Delete the docker image
+      - name: Remove docker image
+        run: docker rmi ex-cb-chp9-image:v1
