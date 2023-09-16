@@ -11,6 +11,7 @@ This is an exercise on Test Driven Development for embedded systems. The cpputes
 
 3.) Clone the cpputest-starter-project into the ```unit-tests``` directory <br />
 ```git clone https://github.com/jwgrenning/cpputest-starter-project.git unit-tests```
+Skip step 3 if you've created your own unit-test folder and makefile (refer - https://youtu.be/lZWFmEhIhpY?t=459).
 
 
 4.) Build CPPUTEST using Autotools <br />
