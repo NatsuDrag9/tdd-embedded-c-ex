@@ -20,6 +20,8 @@ CircularBuffer CircularBuffer_Create(size_t size)
     buffer.readPtr = buffer.elementPtr;
     buffer.isBufferEmpty = true;
     buffer.isBufferFull = false;
+    buffer.readPtrIncrCount = 0;
+    buffer.writePtrIncrCount = 0;
 
     return buffer;
 }
@@ -28,25 +30,26 @@ void CircularBuffer_Put(CircularBuffer *ptrCircularBuffer, size_t value)
 {
     if (ptrCircularBuffer->isBufferFull)
     {
-        printf("Unable to put as buffer is full");
+        printf("\nUnable to put as buffer is full!!\n");
         return;
-    }
-
-    // Wrap when writePtr reaches end of buffer
-    if (ptrCircularBuffer->writePtrIncrCount == ptrCircularBuffer->bufferSize)
-    {
-        ptrCircularBuffer->writePtr = ptrCircularBuffer->elementPtr;
     }
 
     *(ptrCircularBuffer->writePtr) = value;
     ptrCircularBuffer->writePtr++;
-    ptrCircularBuffer->writePtrIncrCount++;
     ptrCircularBuffer->isBufferEmpty = false;
 
-    // Buffer is full when writePtr equals readPtr
+    // Wrap when write pointer reaches end of buffer
+    if (ptrCircularBuffer->writePtr == ptrCircularBuffer->elementPtr + ptrCircularBuffer->bufferSize)
+    {
+        ptrCircularBuffer->writePtr = ptrCircularBuffer->elementPtr;
+    }
+
+    // Buffer is full when writeptr equals readptr
+    // Set flag and return
     if (ptrCircularBuffer->writePtr == ptrCircularBuffer->readPtr)
     {
         ptrCircularBuffer->isBufferFull = true;
+        return;
     }
 }
 
@@ -54,22 +57,21 @@ size_t CircularBuffer_Get(CircularBuffer *ptrCircularBuffer)
 {
     if (ptrCircularBuffer->isBufferEmpty)
     {
-        printf("Unable to get as buffer is empty");
-        return 999999999;
+        printf("\nUnable to get as buffer is empty!!\n");
+        return 999999;
     }
 
-    size_t value = *(ptrCircularBuffer->readPtr);
+    size_t value = *ptrCircularBuffer->readPtr;
     ptrCircularBuffer->readPtr++;
-    ptrCircularBuffer->readPtrIncrCount++;
     ptrCircularBuffer->isBufferFull = false;
 
-    // Wrap when readPtr reaches end
-    if (ptrCircularBuffer->readPtrIncrCount == ptrCircularBuffer->bufferSize)
+    // Wrap when read pointer reaches end of buffer
+    if (ptrCircularBuffer->readPtr == ptrCircularBuffer->elementPtr + ptrCircularBuffer->bufferSize)
     {
         ptrCircularBuffer->readPtr = ptrCircularBuffer->elementPtr;
     }
 
-    // Buffer is empty when readPtr equals writePtr
+    // Buffer is empty when readptr equals writeptr
     if (ptrCircularBuffer->readPtr == ptrCircularBuffer->writePtr)
     {
         ptrCircularBuffer->isBufferEmpty = true;
@@ -85,13 +87,15 @@ void CircularBuffer_Print(CircularBuffer *ptrCircularBuffer)
         return;
     }
 
+    FormatOutputSpy("Circular buffer content: \n<%zu", CircularBuffer_Get(ptrCircularBuffer));
     size_t *tempReadPtr = ptrCircularBuffer->readPtr;
-    FormatOutputSpy("Circular buffer content: \n<%zu", *tempReadPtr);
-    tempReadPtr++;
     while (tempReadPtr != ptrCircularBuffer->writePtr)
     {
-        FormatOutputSpy(", %zu", *tempReadPtr);
+        FormatOutputSpy(", %zu", CircularBuffer_Get(ptrCircularBuffer));
         tempReadPtr++;
+        if (tempReadPtr == ptrCircularBuffer->elementPtr + ptrCircularBuffer->bufferSize){
+            tempReadPtr = ptrCircularBuffer->elementPtr;
+        }
     }
     FormatOutputSpy(">\n");
     tempReadPtr = NULL;

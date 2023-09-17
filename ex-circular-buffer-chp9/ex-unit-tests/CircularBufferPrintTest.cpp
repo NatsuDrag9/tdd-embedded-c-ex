@@ -73,3 +73,7 @@ TEST(CircularBufferPrint, PrintOldToNewWhenWrappedAndFull){
 
     STRCMP_EQUAL(expectedOutput, actualOutput);
 }
+
+TEST(CircularBufferPrint, PrintMultipleLines){
+
+}
