@@ -18,7 +18,7 @@ typedef struct {
 
 /* APIs*/
 CircularBuffer CircularBuffer_Create(size_t size);
-void CircularBuffer_Print(CircularBuffer* ptrCircularBuffer);
+void CircularBuffer_Print(CircularBuffer* ptrCircularBuffer, int lineLength);
 void CircularBuffer_Put(CircularBuffer* ptrCircularBuffer, size_t value);
 size_t CircularBuffer_Get(CircularBuffer* ptrCircularBuffer);
 void CircularBuffer_Destroy(CircularBuffer circularBuffer);

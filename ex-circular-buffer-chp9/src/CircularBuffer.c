@@ -99,7 +99,7 @@ size_t CircularBuffer_Get(CircularBuffer *ptrCircularBuffer)
     return value;
 }
 
-void CircularBuffer_Print(CircularBuffer *ptrCircularBuffer)
+void CircularBuffer_Print(CircularBuffer *ptrCircularBuffer, int lineLength)
 {
     if (ptrCircularBuffer->isBufferEmpty)
     {
@@ -108,7 +108,7 @@ void CircularBuffer_Print(CircularBuffer *ptrCircularBuffer)
     }
 
     // Variables to print neatly in a column
-    int lineLength = 60;    // Maximum of 60 characters in one line
+    // int lineLength = 60;    // Maximum of 60 characters in one line
     size_t value = CircularBuffer_Get(ptrCircularBuffer);
     int nDigits = countDigits(value);
     int nColSeparator = 2;  // Comma and space are the two characters used as separator
