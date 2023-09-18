@@ -3,6 +3,26 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+/* Helper functions */
+static int countDigits(size_t num)
+{
+    int count = 0;
+
+    // Handle the case when num is 0
+    if (num == 0)
+    {
+        return 1; // 0 has one digit
+    }
+
+    while (num != 0)
+    {
+        num /= 10;
+        count++;
+    }
+
+    return count;
+}
+
 /* API implementation */
 CircularBuffer CircularBuffer_Create(size_t size)
 {
@@ -87,13 +107,31 @@ void CircularBuffer_Print(CircularBuffer *ptrCircularBuffer)
         return;
     }
 
-    FormatOutputSpy("Circular buffer content: \n<%zu", CircularBuffer_Get(ptrCircularBuffer));
+    // Variables to print neatly in a column
+    int lineLength = 60;    // Maximum of 60 characters in one line
+    size_t value = CircularBuffer_Get(ptrCircularBuffer);
+    int nDigits = countDigits(value);
+    int nColSeparator = 2;  // Comma and space are the two characters used as separator
+    int nCharPerLine = nDigits;
+
+    FormatOutputSpy("Circular buffer content: \n<%zu", value);
     size_t *tempReadPtr = ptrCircularBuffer->readPtr;
     while (tempReadPtr != ptrCircularBuffer->writePtr)
     {
-        FormatOutputSpy(", %zu", CircularBuffer_Get(ptrCircularBuffer));
+        value = CircularBuffer_Get(ptrCircularBuffer);
+        nDigits = countDigits(value);
+        nCharPerLine += nColSeparator + nDigits;
+        if (nCharPerLine > lineLength){
+            FormatOutputSpy("\n%zu", value);
+            nCharPerLine = 0;   // Reset when switched to new line
+        }
+        else{
+            FormatOutputSpy(", %zu", value);
+        }
+        // FormatOutputSpy(", %zu", value);
         tempReadPtr++;
-        if (tempReadPtr == ptrCircularBuffer->elementPtr + ptrCircularBuffer->bufferSize){
+        if (tempReadPtr == ptrCircularBuffer->elementPtr + ptrCircularBuffer->bufferSize)
+        {
             tempReadPtr = ptrCircularBuffer->elementPtr;
         }
     }

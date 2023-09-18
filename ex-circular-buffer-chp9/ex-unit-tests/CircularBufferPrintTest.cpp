@@ -1,36 +1,42 @@
 #include "CppUTest/TestHarness.h"
 
-extern "C" {
-    #include <stdio.h>
-    #include "../inc/FormatOutputSpy.h"
-    #include "../inc/CircularBuffer.h"
+extern "C"
+{
+#include <stdio.h>
+#include "../inc/FormatOutputSpy.h"
+#include "../inc/CircularBuffer.h"
 }
 
-TEST_GROUP(CircularBufferPrint){
+TEST_GROUP(CircularBufferPrint)
+{
     CircularBuffer buffer;
-    const char* expectedOutput;
-    const char* actualOutput;
+    const char *expectedOutput;
+    const char *actualOutput;
 
-    void setup(){
+    void setup()
+    {
         UT_PTR_SET(FormatOutput, FormatOutputSpy);
-        FormatOutputSpy_Create(100);
+        FormatOutputSpy_Create(200);
         actualOutput = FormatOutputSpy_GetOutput();
         buffer = CircularBuffer_Create(5);
     }
 
-    void teardown(){
+    void teardown()
+    {
         CircularBuffer_Destroy(buffer);
         FormatOutputSpy_Destroy();
     }
 };
 
-TEST(CircularBufferPrint, PrintEmpty){
+TEST(CircularBufferPrint, PrintEmpty)
+{
     expectedOutput = "Circular buffer content: \n<>\n";
     CircularBuffer_Print(&buffer);
     STRCMP_EQUAL(expectedOutput, actualOutput);
 }
 
-TEST(CircularBufferPrint, PrintAfterOneIsPut){
+TEST(CircularBufferPrint, PrintAfterOneIsPut)
+{
     expectedOutput = "Circular buffer content: \n<17>\n";
     CircularBuffer_Put(&buffer, 17);
     CircularBuffer_Print(&buffer);
@@ -38,7 +44,8 @@ TEST(CircularBufferPrint, PrintAfterOneIsPut){
     STRCMP_EQUAL(expectedOutput, actualOutput);
 }
 
-TEST(CircularBufferPrint, PrintNotYetWrappedOrFull){
+TEST(CircularBufferPrint, PrintNotYetWrappedOrFull)
+{
     expectedOutput = "Circular buffer content: \n<10, 20, 30>\n";
     CircularBuffer_Put(&buffer, 10);
     CircularBuffer_Put(&buffer, 20);
@@ -48,7 +55,8 @@ TEST(CircularBufferPrint, PrintNotYetWrappedOrFull){
     STRCMP_EQUAL(expectedOutput, actualOutput);
 }
 
-TEST(CircularBufferPrint, PrintNotYetWrappedAndIsFull){
+TEST(CircularBufferPrint, PrintNotYetWrappedAndIsFull)
+{
     expectedOutput = "Circular buffer content: \n<31, 41, 59, 26, 53>\n";
     CircularBuffer_Put(&buffer, 31);
     CircularBuffer_Put(&buffer, 41);
@@ -60,7 +68,8 @@ TEST(CircularBufferPrint, PrintNotYetWrappedAndIsFull){
     STRCMP_EQUAL(expectedOutput, actualOutput);
 }
 
-TEST(CircularBufferPrint, PrintOldToNewWhenWrappedAndFull){
+TEST(CircularBufferPrint, PrintOldToNewWhenWrappedAndFull)
+{
     expectedOutput = "Circular buffer content: \n<202, 203, 204, 205, 999>\n";
     CircularBuffer_Put(&buffer, 201);
     CircularBuffer_Put(&buffer, 202);
@@ -74,6 +83,23 @@ TEST(CircularBufferPrint, PrintOldToNewWhenWrappedAndFull){
     STRCMP_EQUAL(expectedOutput, actualOutput);
 }
 
-TEST(CircularBufferPrint, PrintMultipleLines){
+/* Exercises */
+// Boundary condition to check no more than 60 characters per line
+TEST(CircularBufferPrint, ShiftToNextLineWhenLineFull)
+{
+    expectedOutput = "Circular buffer content: \n<10000, 10001, 10002, 10003, 10004, 10005, 10006, 10007, 101\n10008, 10009, 10010>\n";
 
+    CircularBuffer tmpBuffer = CircularBuffer_Create(12);
+    for (size_t i = 0; i < 8; i++)
+    {
+        CircularBuffer_Put(&tmpBuffer, 10000 + i);
+    }
+    CircularBuffer_Put(&tmpBuffer, 101);
+    for (size_t i = 8; i < 11; i++)
+    {
+        CircularBuffer_Put(&tmpBuffer, 10000 + i);
+    }
+    CircularBuffer_Print(&tmpBuffer);
+    STRCMP_EQUAL(expectedOutput, actualOutput);
+    CircularBuffer_Destroy(tmpBuffer);
 }
