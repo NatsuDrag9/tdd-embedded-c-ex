@@ -1,11 +1,15 @@
 name: Unit Test
 
-on: [push]
+on:
+  push:
+    branches:
+      - 'chp9'  # Run the test-circular-buffer-chp9 job when only pushed to this branch
 
 jobs:
   test-led-scheduler:
     runs-on: ubuntu-latest
     name: Build and run ex-led-scheduler unit tests Docker image
+    if: github.ref != 'refs/heads/chp9'
     steps:
         # Check out from this repo
       - name: Check out this repo
@@ -26,6 +30,7 @@ jobs:
   test-alarm-clock-service:
     runs-on: ubuntu-latest
     name: Build and run ex-alarm-clock-service unit tests Docker image
+    if: github.ref != 'refs/heads/chp9'
     steps:
         # Check out from this repo
       - name: Check out this repo
@@ -46,6 +51,7 @@ jobs:
   test-circular-buffer-chp9:
     runs-on: ubuntu-latest
     name: Build and run ex-circular-buffer-chp9 unit tests Docker image
+    if: github.ref == 'refs/heads/chp9'
     steps:
         # Check out from this repo
       - name: Check out this repo
