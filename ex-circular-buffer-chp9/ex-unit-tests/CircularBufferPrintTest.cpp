@@ -46,7 +46,7 @@ TEST(CircularBufferPrint, PrintAfterOneIsPut)
 
 TEST(CircularBufferPrint, PrintNotYetWrappedOrFull)
 {
-    expectedOutput = "Circular buffer content: \n<10, 20, 30>\n";
+    expectedOutput = "Circular buffer content: \n<10,   20,   30>\n";
     CircularBuffer_Put(&buffer, 10);
     CircularBuffer_Put(&buffer, 20);
     CircularBuffer_Put(&buffer, 30);
@@ -57,7 +57,7 @@ TEST(CircularBufferPrint, PrintNotYetWrappedOrFull)
 
 TEST(CircularBufferPrint, PrintNotYetWrappedAndIsFull)
 {
-    expectedOutput = "Circular buffer content: \n<31, 41, 59, 26, 53>\n";
+    expectedOutput = "Circular buffer content: \n<31,   41,   59,   26,   53>\n";
     CircularBuffer_Put(&buffer, 31);
     CircularBuffer_Put(&buffer, 41);
     CircularBuffer_Put(&buffer, 59);
@@ -70,7 +70,7 @@ TEST(CircularBufferPrint, PrintNotYetWrappedAndIsFull)
 
 TEST(CircularBufferPrint, PrintOldToNewWhenWrappedAndFull)
 {
-    expectedOutput = "Circular buffer content: \n<202, 203, 204, 205, 999>\n";
+    expectedOutput = "Circular buffer content: \n<202,    203,    204,    205,    999>\n";
     CircularBuffer_Put(&buffer, 201);
     CircularBuffer_Put(&buffer, 202);
     CircularBuffer_Put(&buffer, 203);
@@ -84,18 +84,14 @@ TEST(CircularBufferPrint, PrintOldToNewWhenWrappedAndFull)
 }
 
 /* Exercises */
+/* Ex-1 */
 // Boundary condition to check exactly 60 characters per line
 TEST(CircularBufferPrint, ShiftToNextLineWhenLineExactlyFull)
 {
-    expectedOutput = "Circular buffer content: \n<10000, 10001, 10002, 10003, 10004, 10005, 10006, 10007, 101\n10008, 10009, 10010>\n";
+    expectedOutput = "Circular buffer content: \n<10000,      10001,      10002,      10003,      10004\n10005,      10006,      10007,      10008,      10009\n10010>\n";
 
-    CircularBuffer tmpBuffer = CircularBuffer_Create(12);
-    for (size_t i = 0; i < 8; i++)
-    {
-        CircularBuffer_Put(&tmpBuffer, 10000 + i);
-    }
-    CircularBuffer_Put(&tmpBuffer, 101);
-    for (size_t i = 8; i < 11; i++)
+    CircularBuffer tmpBuffer = CircularBuffer_Create(11);
+    for (size_t i = 0; i < 11; i++)
     {
         CircularBuffer_Put(&tmpBuffer, 10000 + i);
     }
@@ -107,14 +103,32 @@ TEST(CircularBufferPrint, ShiftToNextLineWhenLineExactlyFull)
 // Checks when line characters exceeds 60
 TEST(CircularBufferPrint, ShiftToNextLineWhenLineFull)
 {
-    expectedOutput = "Circular buffer content: \n<10000, 10001, 10002, 10003, 10004, 10005, 10006, 10007\n10008, 10009, 10010>\n";
+    expectedOutput = "Circular buffer content: \n<10000,      10001,      10002,      10003,      10004\n10005,      10006,      10007>\n";
 
-    CircularBuffer tmpBuffer = CircularBuffer_Create(11);
-    for (size_t i = 0; i < 11; i++)
+    CircularBuffer tmpBuffer = CircularBuffer_Create(8);
+    for (size_t i = 0; i < 8; i++)
     {
         CircularBuffer_Put(&tmpBuffer, 10000 + i);
     }
     CircularBuffer_Print(&tmpBuffer, 60);
     STRCMP_EQUAL(expectedOutput, actualOutput);
     CircularBuffer_Destroy(tmpBuffer);
+}
+
+/* Ex-2 */
+// Adjust column width to two characters wider than the largest number
+// in the buffer
+// Largest number here is 100000 = 6 characters.
+// So, column width = 1 comma and 1 space + length of largest number = 8 characters
+TEST(CircularBufferPrint, ColumnWidth)
+{
+    expectedOutput = "Circular buffer content: \n<1000,       100,       100000,       1,       12345>\n";
+    CircularBuffer_Put(&buffer, 1000);
+    CircularBuffer_Put(&buffer, 100);
+    CircularBuffer_Put(&buffer, 100000);
+    CircularBuffer_Put(&buffer, 1);
+    CircularBuffer_Put(&buffer, 12345);
+    CircularBuffer_Print(&buffer, 60);
+
+    STRCMP_EQUAL(expectedOutput, actualOutput);
 }

@@ -23,6 +23,15 @@ static int countDigits(size_t num)
     return count;
 }
 
+static size_t getMaxValue(size_t num1, size_t num2)
+{
+    if (num1 >= num2)
+    {
+        return num1;
+    }
+    return num2;
+}
+
 /* API implementation */
 CircularBuffer CircularBuffer_Create(size_t size)
 {
@@ -42,6 +51,7 @@ CircularBuffer CircularBuffer_Create(size_t size)
     buffer.isBufferFull = false;
     buffer.readPtrIncrCount = 0;
     buffer.writePtrIncrCount = 0;
+    buffer.maxValue = 0; // Initializing to zero
 
     return buffer;
 }
@@ -57,6 +67,7 @@ void CircularBuffer_Put(CircularBuffer *ptrCircularBuffer, size_t value)
     *(ptrCircularBuffer->writePtr) = value;
     ptrCircularBuffer->writePtr++;
     ptrCircularBuffer->isBufferEmpty = false;
+    ptrCircularBuffer->maxValue = getMaxValue(ptrCircularBuffer->maxValue, value);
 
     // Wrap when write pointer reaches end of buffer
     if (ptrCircularBuffer->writePtr == ptrCircularBuffer->elementPtr + ptrCircularBuffer->bufferSize)
@@ -111,7 +122,8 @@ void CircularBuffer_Print(CircularBuffer *ptrCircularBuffer, int lineLength)
     // int lineLength = 60;    // Maximum of 60 characters in one line
     size_t value = CircularBuffer_Get(ptrCircularBuffer);
     int nDigits = countDigits(value);
-    int nColSeparator = 2;  // Comma and space are the two characters used as separator
+    int nDigitsOfMaxValue = countDigits(ptrCircularBuffer->maxValue); // Stores number of digits of the largest number
+    int nColSeparator = 2;                                            // Comma and space are the two characters used as separator
     int nCharPerLine = nDigits;
 
     FormatOutputSpy("Circular buffer content: \n<%zu", value);
@@ -120,13 +132,23 @@ void CircularBuffer_Print(CircularBuffer *ptrCircularBuffer, int lineLength)
     {
         value = CircularBuffer_Get(ptrCircularBuffer);
         nDigits = countDigits(value);
-        nCharPerLine += nColSeparator + nDigits;
-        if (nCharPerLine > lineLength){
+
+        // Adjust to two characters wider than the largest number in the buffer
+        // Column Width: Standard two characters (1 comma + 1 space) + Length of largest number
+        nCharPerLine += nColSeparator + nDigitsOfMaxValue + nDigits;
+        if (nCharPerLine > lineLength)
+        {
             FormatOutputSpy("\n%zu", value);
-            nCharPerLine = 0;   // Reset when switched to new line
+            nCharPerLine = nDigits; // Reset when switched to new line
         }
-        else{
-            FormatOutputSpy(", %zu", value);
+        else
+        {
+            // Fixed spaces
+            // FormatOutputSpy(", %zu", value);
+
+            // Adjust to two characters wider than the largest number in the buffer
+            // Column Width: Standard two characters (1 comma + 1 space) + Length of largest number
+            FormatOutputSpy(", %*c%zu", nDigitsOfMaxValue, ' ', value);
         }
         // FormatOutputSpy(", %zu", value);
         tempReadPtr++;

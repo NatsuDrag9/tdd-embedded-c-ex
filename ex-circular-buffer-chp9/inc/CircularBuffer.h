@@ -6,7 +6,7 @@
 
 /* Structure */
 typedef struct {
-    size_t* elementPtr;     // points to first element of dynamically created array
+    size_t* elementPtr;     // Points to first element of dynamically created array
     size_t* writePtr;
     size_t* readPtr;
     bool isBufferFull;
@@ -14,6 +14,7 @@ typedef struct {
     int bufferSize;
     int readPtrIncrCount;
     int writePtrIncrCount;
+    size_t maxValue;    // Stores the maximum value in the buffer
 } CircularBuffer;
 
 /* APIs*/
