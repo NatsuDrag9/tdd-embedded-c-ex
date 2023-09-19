@@ -5,10 +5,12 @@ FormatOutputSpy Tests:
 
 Circular Buffer Tests:
 1.) Printing Tests
-(a.) Print empty buffer -- 
-(b.) Check whether desired output is printed after inserting one element -- 
-(c.) Check for desired output when buffer is partially full and pointer did not wrap yet -- 
-(d.) Check for desired output when buffer is full but pointer did not wrap yet -- 
-(e.) Check for desired output when buffer is full and pointer wrapped -- 
+(a.) Print empty buffer -- DONE
+(b.) Check whether desired output is printed after inserting one element -- DONE
+(c.) Check for desired output when buffer is partially full and pointer did not wrap yet -- DONE
+(d.) Check for desired output when buffer is full but pointer did not wrap yet -- DONE
+(e.) Check for desired output when buffer is full and pointer wrapped -- DONE
 
-2.) 
+2.) Multiple Lines Test
+(a.) Shift to next line when line limit reached -- DONE
+(b.) Varying column width -- DONE
