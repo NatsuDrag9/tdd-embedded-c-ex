@@ -27,7 +27,7 @@ jobs:
   test-alarm-clock-service:
     runs-on: ubuntu-latest
     name: Build and run ex-alarm-clock-service unit tests Docker image
-    if: github.ref != 'refs/heads/chp9'
+    if: github.ref != 'refs/heads/chp10'
     steps:
         # Check out from this repo
       - name: Check out this repo
@@ -48,7 +48,7 @@ jobs:
   test-circular-buffer-chp9:
     runs-on: ubuntu-latest
     name: Build and run ex-circular-buffer-chp9 unit tests Docker image
-    if: github.ref == 'refs/heads/chp9'
+    if: github.ref != 'refs/heads/chp10'
     steps:
         # Check out from this repo
       - name: Check out this repo
