@@ -1,1 +1,11 @@
-1.) 
+1.) The Erase Suspend & Resume flowchart is given on pg-44 of the datasheet.
+
+Insert image of the flowchart
+
+Notes on the design:
+1.) I randomly selected status register address as 0x01
+
+2.) 
+
+Datasheet link
+https://media-www.micron.com/-/media/client/global/documents/products/data-sheet/nor-flash/parallel/m28w/m28w160ec.pdf?rev=fd53eff278214c9c9d27e2e1ea536c59
