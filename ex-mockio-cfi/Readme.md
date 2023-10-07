@@ -57,4 +57,4 @@ Run using the docker engine <br />
 
 ---
 
-**Note - I skipped this exercise. Refer point 3 [notes.txt](https://github.com/NatsuDrag9/tdd-embedded-c-ex/blob/chp10/ex-mockio-cfi/notes.txt) for the issue. I would be grateful for any help that resolved this issue**
+**Note - I skipped this exercise. Refer point 3 in [notes.txt](https://github.com/NatsuDrag9/tdd-embedded-c-ex/blob/chp10/ex-mockio-cfi/notes.txt) for the issue. I would be grateful for any help that resolved this issue**
