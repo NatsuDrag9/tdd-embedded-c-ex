@@ -1,0 +1,13 @@
+1.) According to table 3 of the datasheet, the read CFI Query (RCFI) command performs two bus operations - one write followed by one read. Table 3 does not specify the write address for the first write operation, so I decided to proceed with 0x00. The read operation 
+
+2.) RCFI may also perform multiple reads but I decided to proceed with one read.
+
+3.) Skipping this questions because of the following questions:
+(a) What is the meaning of query in read operation in table 3? And how is it different from CFI Address?
+My understanding of read operation in table 3: Query refers to the various sub-sections in table 25 and the CFI Address corresponds to the offset within each sub-section from where data is retrieved.
+(b) How to use MOCKIO to test a structure returned from RCFI command?
+(c) Chaging the return type of IO_Read() from ioData to (say) a structure of CFI would affect the MOCKIO library. How to resolve this issue?
+
+
+Datasheet link
+https://media-www.micron.com/-/media/client/global/documents/products/data-sheet/nor-flash/parallel/m28w/m28w160ec.pdf?rev=fd53eff278214c9c9d27e2e1ea536c59
