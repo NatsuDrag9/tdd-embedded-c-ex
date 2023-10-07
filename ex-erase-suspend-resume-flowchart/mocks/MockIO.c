@@ -26,6 +26,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stddef.h> // changed
 #include <stdio.h>
 #include "MockIO.h"
 #include "CppUTest/TestHarness_c.h"
@@ -86,7 +87,8 @@ static const char * report_expectation_number =
 
 void MockIO_Create(int maxExpectations)
 {
-    expectations = calloc(maxExpectations, sizeof(Expectation));
+    // expectations = calloc(maxExpectations, sizeof(Expectation));
+    expectations = calloc((size_t)maxExpectations, sizeof(Expectation)); // changed
     setExpectationCount = 0;
     getExpectationCount = 0;
     maxExpectationCount = maxExpectations;
@@ -142,14 +144,17 @@ void MockIO_Expect_ReadThenReturn(ioAddress addr, ioData value)
 static void failWhenNoUnusedExpectations(char * format)
 {
     char message[100];
-    int size = sizeof message - 1;
+    // int size = sizeof message - 1;
+    size_t size = sizeof(message) -1; // changed
 
     if (getExpectationCount >= setExpectationCount)
     {
         int offset = snprintf(message, size,
                 report_no_more_expectations, getExpectationCount + 1);
-        snprintf(message + offset, size - offset,
-                format, actual.addr, actual.value);
+        // snprintf(message + offset, size - offset,
+        //         format, actual.addr, actual.value);
+        snprintf(message + offset, size - (size_t)offset,
+                format, actual.addr, actual.value); // changed
         fail(message);
     }
 }
@@ -165,12 +170,16 @@ static void setExpectedAndActual(ioAddress addr, ioData value)
 static void failExpectation(char * expectationFailMessage)
 {
     char message[100];
-    int size = sizeof message - 1;
+    // int size = sizeof message - 1;
+    size_t size = sizeof message - 1;   // changed
     int offset = snprintf(message, size,
             report_expectation_number, getExpectationCount + 1);
-    snprintf(message + offset, size - offset,
+    // snprintf(message + offset, size - offset,
+    //         expectationFailMessage, expected.addr, expected.value,
+    //         actual.addr, actual.value);
+    snprintf(message + offset, size - (size_t)offset,
             expectationFailMessage, expected.addr, expected.value,
-            actual.addr, actual.value);
+            actual.addr, actual.value); // changed
     fail(message);
 }
 
@@ -208,7 +217,8 @@ void IO_Write(ioAddress addr, ioData value)
 
 ioData IO_Read(ioAddress addr)
 {
-    setExpectedAndActual(addr, NoExpectedValue);
+    // setExpectedAndActual(addr, NoExpectedValue);
+    setExpectedAndActual(addr, (ioData)NoExpectedValue);    // changed
     failWhenNotInitialized();
     failWhenNoUnusedExpectations(report_read_but_out_of_expectations);
     failWhen(expectationIsNot(FLASH_READ), report_expect_write_was_read);
