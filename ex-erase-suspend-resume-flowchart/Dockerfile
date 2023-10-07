@@ -19,9 +19,12 @@ RUN ./install-cpputest.sh
 # Set the working directory for the following commands
 WORKDIR /app/ex-erase-suspend-resume/
 
-# Copy the circular-buffer header and source files
+# Copy the header and source files
 COPY inc/ ./inc/
 COPY src/ ./src/
+
+# Copy the MOCKIO library files
+COPY mocks/ ./mocks/
 
 # Copy the application level main.c and makefile
 COPY main.c ./
