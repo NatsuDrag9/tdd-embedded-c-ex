@@ -18,6 +18,10 @@ SRC_DIRS=$(PROJECT_DIR)/src
 INCLUDE_DIRS += $(CPPUTEST_HOME)/include
 INCLUDE_DIRS += $(CPPUTEST_HOME)/include/Platforms/Gcc
 
+# Include MOCKIO files
+INCLUDE_DIR += $(PROJECT_DIR)/mocks
+SRC_DIRS += $(PROJECT_DIR)/mocks
+
 # Unit test files
 TEST_SRC_DIRS=$(TEST_DIR)
 
