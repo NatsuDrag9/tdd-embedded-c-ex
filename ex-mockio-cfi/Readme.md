@@ -54,3 +54,7 @@ Build using docker. Omit sudo if the **user** has been added to **docker** group
 
 Run using the docker engine <br />
 ```sudo docker run --rm ex-mockio-cfi:latest```
+
+---
+
+**Note - I skipped this exercise. Refer point 3 [notes.txt](https://github.com/NatsuDrag9/tdd-embedded-c-ex/blob/chp10/ex-mockio-cfi/notes.txt) for the issue. I would be grateful for any help that resolved this issue**
