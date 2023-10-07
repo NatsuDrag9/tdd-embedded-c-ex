@@ -10,12 +10,11 @@ extern "C"
 TEST_GROUP(FlashERS)
 {
     ioAddress randomAddr;
-    ioAddress data;
     int result = -1;
 
     void setup()
     {
-        randomAddr = 0x00;
+        randomAddr = 0x01;
         uint8_t mockSize = 10;
         MockIO_Create(mockSize);
         Flash_Create();
@@ -31,15 +30,15 @@ TEST_GROUP(FlashERS)
 
 TEST(FlashERS, ER_SucceedsImmediately)
 {
-    MockIO_Expect_Write(0x00, 0xB0);
-    MockIO_Expect_Write(0x11, 0x70);
-    MockIO_Expect_ReadThenReturn(0x01, 1<<7);   // randomly selected status register address = 0x01
-    MockIO_Expect_ReadThenReturn(0x01, 1<<6);   // read bit 6 of status register
-    MockIO_Expect_Write(0x12, 0xFF);
-    MockIO_Expect_ReadThenReturn(0x10, 0);
-    MockIO_Expect_Write(0x13, 0xD0);
+    MockIO_Expect_Write(randomAddr, ProgramCommand1);
+    MockIO_Expect_Write(randomAddr, ProgramCommand2);
+    MockIO_Expect_ReadThenReturn(StatusRegister, ReadBit);
+    MockIO_Expect_ReadThenReturn(StatusRegister, EraseSuspendBit);
+    MockIO_Expect_Write(randomAddr, ProgramCommand3);
+    MockIO_Expect_ReadThenReturn(randomAddr, 0);
+    MockIO_Expect_Write(randomAddr, ProgramCommand4);
 
-    result = Flash_ERS();
+    result = Flash_ERS(randomAddr);
 
     LONGS_EQUAL(0, result);
 }
