@@ -69,7 +69,7 @@ jobs:
   test-mockio-cfi:
     runs-on: ubuntu-latest
     name: Build and run ex-mockio-cfi unit tests Docker image
-    if: github.ref == 'refs/heads/chp10'
+    if: github.ref != 'refs/heads/chp10'
     steps:
         # Check out from this repo
       - name: Check out this repo
