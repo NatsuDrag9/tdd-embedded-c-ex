@@ -6,7 +6,7 @@ jobs:
   test-led-scheduler:
     runs-on: ubuntu-latest
     name: Build and run ex-led-scheduler unit tests Docker image
-    if: github.ref != 'refs/heads/chp10'
+    # if: github.ref != 'refs/heads/chp10'
     steps:
         # Check out from this repo
       - name: Check out this repo
@@ -27,7 +27,7 @@ jobs:
   test-alarm-clock-service:
     runs-on: ubuntu-latest
     name: Build and run ex-alarm-clock-service unit tests Docker image
-    if: github.ref != 'refs/heads/chp10'
+    # if: github.ref != 'refs/heads/chp10'
     steps:
         # Check out from this repo
       - name: Check out this repo
@@ -48,7 +48,7 @@ jobs:
   test-circular-buffer-chp9:
     runs-on: ubuntu-latest
     name: Build and run ex-circular-buffer-chp9 unit tests Docker image
-    if: github.ref != 'refs/heads/chp10'
+    # if: github.ref != 'refs/heads/chp10'
     steps:
         # Check out from this repo
       - name: Check out this repo
@@ -69,7 +69,7 @@ jobs:
   test-mockio-cfi:
     runs-on: ubuntu-latest
     name: Build and run ex-mockio-cfi unit tests Docker image
-    if: github.ref != 'refs/heads/chp10'
+    # if: github.ref != 'refs/heads/chp10'
     steps:
         # Check out from this repo
       - name: Check out this repo
@@ -90,7 +90,7 @@ jobs:
   test-erase-suspend:
     runs-on: ubuntu-latest
     name: Build and run ex-erase-suspend-resume-flowchart unit tests Docker image
-    if: github.ref == 'refs/heads/chp10'
+    # if: github.ref == 'refs/heads/chp10'
     steps:
         # Check out from this repo
       - name: Check out this repo
