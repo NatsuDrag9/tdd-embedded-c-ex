@@ -15,15 +15,21 @@ int Flash_ERS(ioAddress addrOffset)
     ioData statusRegValue = 0;
     IO_Write(addrOffset, ProgramCommand1);
     IO_Write(addrOffset, ProgramCommand2);
-    statusRegValue = IO_Read(StatusRegister);
+    while ((statusRegValue & ReadyBit) == 0)
+    {
+        statusRegValue = IO_Read(StatusRegister);
+    }
     statusRegValue = IO_Read(StatusRegister);
     if (statusRegValue & EraseSuspendBit)
     {
+        // Erase resume operation
         IO_Write(addrOffset, ProgramCommand3);
         IO_Read(addrOffset);
         IO_Write(addrOffset, ProgramCommand4);
         return FLASH_ERASE_RESUME;
     }
+
+    // Erase complete
     IO_Write(addrOffset, ProgramCommand3);
     IO_Read(addrOffset);
     return FLASH_ERASE_COMPLETE;
