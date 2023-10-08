@@ -42,3 +42,17 @@ TEST(FlashERS, ER_SucceedsImmediately)
 
     LONGS_EQUAL(FLASH_ERASE_RESUME, result);
 }
+
+TEST(FlashERS, ES_SucceedsImmediately)
+{
+    MockIO_Expect_Write(randomAddr, ProgramCommand1);
+    MockIO_Expect_Write(randomAddr, ProgramCommand2);
+    MockIO_Expect_ReadThenReturn(StatusRegister, ReadBit);
+    MockIO_Expect_ReadThenReturn(StatusRegister, !((uint8_t)EraseSuspendBit));
+    MockIO_Expect_Write(randomAddr, ProgramCommand3);
+    MockIO_Expect_ReadThenReturn(randomAddr, 0);
+
+    result = Flash_ERS(randomAddr);
+
+    LONGS_EQUAL(FLASH_ERASE_COMPLETE, result);
+}
