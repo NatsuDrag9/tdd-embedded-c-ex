@@ -40,5 +40,5 @@ TEST(FlashERS, ER_SucceedsImmediately)
 
     result = Flash_ERS(randomAddr);
 
-    LONGS_EQUAL(0, result);
+    LONGS_EQUAL(FLASH_ERASE_RESUME, result);
 }
