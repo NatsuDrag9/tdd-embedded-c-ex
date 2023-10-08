@@ -18,7 +18,7 @@ Exercises:
 
 [ex-circular-buffer-chp9](https://github.com/NatsuDrag9/tdd-embedded-c-ex/tree/main/ex-circular-buffer-chp9)
 
-[ex-erase-suspend-resume]()
+[ex-erase-suspend-resume](https://github.com/NatsuDrag9/tdd-embedded-c-ex/tree/main/ex-erase-suspend-resume-flowchart)
 
 ---
 Articles:
