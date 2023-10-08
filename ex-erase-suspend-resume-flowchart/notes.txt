@@ -1,0 +1,17 @@
+1.) The Erase Suspend & Resume flowchart is given on pg-44 of the datasheet.
+
+Insert image of the flowchart
+
+Notes on the design:
+1.) Following the book, the status register address is set to 0x00
+
+2.) The device specific register addresses and status flags are defined in m28w160ect.h
+
+3.) The "any_address" used in write and read operations mentioned in the flowchart is defined by the variable randomAddr = 0x01
+
+4.) Flash_Create() and Flash_Destroy() functions are dummy functions created to maintain consistency
+
+In summary, the test list and design is very similar to the test list created for write operation explained in chapter 10. I couldn't think of any additional tests for this exercise.
+
+Datasheet link
+https://media-www.micron.com/-/media/client/global/documents/products/data-sheet/nor-flash/parallel/m28w/m28w160ec.pdf?rev=fd53eff278214c9c9d27e2e1ea536c59

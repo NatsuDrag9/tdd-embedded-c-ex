@@ -1,0 +1,15 @@
+1.) Test the write operation:
+(a) Reset (RP_Bar) at V_IH
+(b) Chip enable (E_bar) at V_IL && Write enable (W_bar) at V_IL && Output enable (G_bar) at V_IH
+(c) Test should fail for any other combination
+(d) Exit / printf when Reset (RP_bar) not at V_IH
+
+2.) Test the read operation:
+(a) Reset (RP_Bar) at V_IH
+(b) Chip enable (E_bar) at V_IL && Output enable (G_bar) at V_IL
+(c) Test should fail for any other combination
+(d) Exit / printf when Reset (RP_bar) not at V_IH
+
+3.) Successful CFI query operation:
+(a) Correct sequence of write/read operations
+(b) Appropriate data structure is returned

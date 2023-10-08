@@ -18,6 +18,8 @@ Exercises:
 
 [ex-circular-buffer-chp9](https://github.com/NatsuDrag9/tdd-embedded-c-ex/tree/main/ex-circular-buffer-chp9)
 
+[ex-erase-suspend-resume]()
+
 ---
 Articles:
 
@@ -28,3 +30,5 @@ I did not write about ex-1 and ex-2 as their solutions were provided in the book
 [Alarm Clock Scheduler](https://rohitimandi.medium.com/test-driven-development-for-embedded-c-by-james-w-grenning-alarm-clock-service-solution-cf95eb726643)
 
 [Circular Buffer Chapter9](https://rohitimandi.medium.com/test-driven-development-for-embedded-c-by-james-w-grenning-circular-buffer-chapter-9-dff6d7054ebb)
+
+[Erase Suspend Resume Flowchart](https://rohitimandi.medium.com/test-driven-development-for-embedded-c-by-james-w-grenning-erase-suspend-resume-flowchart-c159bf9b239c)
