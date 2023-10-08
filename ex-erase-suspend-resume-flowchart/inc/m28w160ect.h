@@ -16,7 +16,7 @@ typedef enum
 
 typedef enum
 {
-    ReadBit = 1<<7,
+    ReadyBit = 1<<7,
     EraseSuspendBit = 1<<6
 } StatusRegisterBits;
 
