@@ -1,4 +1,4 @@
-1.) Erase resume succeeds immediately --
-2.) Erase suspend succeeds immediately -- 
+1.) Erase resume succeeds immediately -- DONE
+2.) Erase suspend succeeds immediately --
 3.) Erase resume/suspend does not succeed immediately  --
- 4.) 
+4.) 
