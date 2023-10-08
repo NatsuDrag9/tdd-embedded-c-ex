@@ -15,10 +15,14 @@ int Flash_ERS(ioAddress addrOffset)
     ioData statusRegValue = 0;
     IO_Write(addrOffset, ProgramCommand1);
     IO_Write(addrOffset, ProgramCommand2);
+    
+    // Read status register until b7 = 1
     while ((statusRegValue & ReadyBit) == 0)
     {
         statusRegValue = IO_Read(StatusRegister);
     }
+
+    // Check bit 6 of status register
     statusRegValue = IO_Read(StatusRegister);
     if (statusRegValue & EraseSuspendBit)
     {
